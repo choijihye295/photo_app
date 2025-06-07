@@ -1,16 +1,39 @@
-# life_photo_app
+# 🎞️ life_photo_app
 
-A new Flutter project.
+Flutter 기반의 인생네컷 프레임 앱입니다.  
+사용자가 4장의 사진을 선택하여 인생네컷 스타일로 꾸밀 수 있습니다.
 
-## Getting Started
+## 📱 주요 기능
 
-This project is a starting point for a Flutter application.
+- PNG 프레임 위에 사진 4장 배치
+- 사진 크기 조절 기능
+- 결과물 저장 및 공유 기능
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 사용법
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. 앱을 실행하고 프레임을 선택하세요.
+2. 각 칸을 눌러 사진을 업로드하세요.
+3. 사진 위치를 조절하거나 확대/축소할 수 있어요.
+4. [저장] 또는 [공유] 버튼을 눌러 결과물을 저장하거나 공유하세요.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ 개발 환경
+
+- Flutter 3.x
+- Dart
+- Android/iOS 지원
+- 사용 패키지:
+    - `image_picker`
+    - `permission_handler`
+    - `path_provider`
+    - `share_plus`
+
+## 📸 스크린샷
+
+
+
+---
+
+## 📚 참고 자료
+
+- [Flutter 공식 문서](https://docs.flutter.dev/)
+- [Flutter Codelab](https://docs.flutter.dev/get-started/codelab)
