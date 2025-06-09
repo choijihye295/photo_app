@@ -61,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double frameWidth = MediaQuery.of(context).size.width * 0.8;
+    final double frameWidth = MediaQuery
+        .of(context)
+        .size
+        .width * 0.8;
     final double frameHeight = frameWidth * 1.5;
     final double cellWidth = frameWidth / 2;
     final double cellHeight = frameHeight / 2;
@@ -142,30 +145,33 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   Widget _buildImageCell(int index, double width, double height) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: _images[index] != null
-          ? InteractiveViewer(
-        transformationController: _controllers[index],
-        panEnabled: true,              // 드래그 가능
-        scaleEnabled: true,           // 핀치줌 가능
-        minScale: 1.0,
-        maxScale: 3.0,
-        constrained: false,
-        clipBehavior: Clip.none,
-        child: Image.file(
-          _images[index]!,
-          fit: BoxFit.cover,
-          width: width,
-          height: height,
+    return ClipRect( // 셀 외부로 나가지 않게 자르기
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: _images[index] != null
+            ? InteractiveViewer(
+          transformationController: _controllers[index],
+          panEnabled: true,
+          scaleEnabled: true,
+          minScale: 1.0,
+          maxScale: 3.0,
+          constrained: true,
+          // 셀 내부에 맞게 제한
+          clipBehavior: Clip.hardEdge,
+          // 클리핑 적용
+          child: Image.file(
+            _images[index]!,
+            fit: BoxFit.cover,
+            width: width,
+            height: height,
+          ),
+        )
+            : Container(
+          color: Colors.grey[300],
+          child: Center(child: Text('${index + 1}번')),
         ),
-      )
-          : Container(
-        color: Colors.grey[300],
-        child: Center(child: Text('${index + 1}번')),
       ),
     );
   }
-
 }
