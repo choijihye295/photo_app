@@ -8,7 +8,7 @@ plugins {
 import java.util.Properties
         import java.io.FileInputStream
 
-// 🔐 Keystore 설정
+// Keystore 설정
 val keystoreProperties = Properties().apply {
     val keystorePropertiesFile = rootProject.file("key.properties")
     if (keystorePropertiesFile.exists()) {
@@ -25,8 +25,8 @@ android {
         applicationId = "com.example.life_photo_app"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
-        versionCode = 2
-        versionName = "1.0.1"
+        versionCode = 3
+        versionName = "1.0.2"
     }
 
     signingConfigs {

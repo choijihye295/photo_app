@@ -105,11 +105,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         Positioned.fill(
-                          child: widget.selectedFramePath.endsWith('none.png')
-                              ? const SizedBox()
-                              : Image.asset(
-                            widget.selectedFramePath,
-                            fit: BoxFit.fill,
+                          child: IgnorePointer( // 프레임은 보이되 제스처는 아래로 전달
+                            child: widget.selectedFramePath.endsWith('none.png')
+                                ? const SizedBox()
+                                : Image.asset(
+                              widget.selectedFramePath,
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ],
