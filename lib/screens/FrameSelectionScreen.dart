@@ -63,10 +63,26 @@ class _FrameSelectionScreenState extends State<FrameSelectionScreen> {
       );
     }
 
-    return path.startsWith('assets/')
-        ? Image.asset(path, width: 200, height: 300, fit: BoxFit.contain)
-        : Image.file(File(path), width: 200, height: 300, fit: BoxFit.contain);
+    //사용자 프레임일 경우 탭하면 교체 가능하게
+    if (!path.startsWith('assets/')) {
+      return GestureDetector(
+        onTap: () async {
+          final picker = ImagePicker();
+          final picked = await picker.pickImage(source: ImageSource.gallery);
+          if (picked != null) {
+            setState(() {
+              framePaths[currentIndex] = picked.path; // 현재 위치의 사용자 프레임 교체
+            });
+          }
+        },
+        child: Image.file(File(path), width: 200, height: 300, fit: BoxFit.contain),
+      );
+    }
+
+    // 기본 프레임
+    return Image.asset(path, width: 200, height: 300, fit: BoxFit.contain);
   }
+
 
   String _frameLabel(String path, int index) {
     if (path == 'add_frame') return '프레임 추가';
