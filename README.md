@@ -31,7 +31,7 @@ Flutter 기반의 네컷사진 프레임 앱입니다.
 
 - Flutter 3.20.0
 - Dart 3.8.0
-- Android/iOS 지원
+- Android 지원
 
 ---
 
